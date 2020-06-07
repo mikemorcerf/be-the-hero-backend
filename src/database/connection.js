@@ -1,3 +1,6 @@
+import 'reflect-metadata';
+import 'dotenv/config';
+
 const knex = require('knex');
 const configuration = require('../../knexfile');
 
