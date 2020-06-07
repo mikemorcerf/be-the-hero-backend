@@ -1,5 +1,5 @@
 require('reflect-metadata');
-require('dotenv/config');
+require('dotenv').config();
 
 const app = require('./app');
 
