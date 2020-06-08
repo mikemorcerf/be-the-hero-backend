@@ -36,16 +36,30 @@ module.exports = {
 
   production: {
     client: 'postgresql',
-    host: process.env.DATABASE_HOST,
-    database: process.env.DATABASE_NAME,
-    username: process.env.DATABASE_USER,
-    password: process.env.DATABASE_PASSWORD,
-    port: process.env.DATABASE_PORT,
-    URI: process.env.DATABASE_URI,
-    dialect: 'postgres',
-    type: 'postgres',
-    protocol: 'postgres',
-    ssl: true,
+    connection: {
+        host: process.env.DATABASE_HOST,
+        user: process.env.DATABASE_USER,
+        password: process.env.DATABASE_PASSWORD,
+        db: process.env.DATABASE_NAME,
+        charset: 'utf8'
+    },
+    pool: {
+        min: 2,
+        max: 10
+    },
+    // client: 'postgresql',
+    // connection: {
+    //   host: process.env.DATABASE_HOST,
+    //   database: process.env.DATABASE_NAME,
+    //   username: process.env.DATABASE_USER,
+    //   password: process.env.DATABASE_PASSWORD,
+    //   port: process.env.DATABASE_PORT,
+    //   URI: process.env.DATABASE_URI,
+    // },
+    // dialect: 'postgres',
+    // type: 'postgres',
+    // protocol: 'postgres',
+    // ssl: true,
     migrations: {
       directory: './src/database/migrations/'
     },
