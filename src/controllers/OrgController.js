@@ -9,7 +9,7 @@ module.exports = {
     async create(request, response){
         const { name, email, phone, city, state, website } = request.body;
 
-        const id = crypto.randomBytes(4).toString('HEX');
+        const id = await crypto.randomBytes(4).toString('HEX');
     
         await connection('orgs').insert({
             id,
