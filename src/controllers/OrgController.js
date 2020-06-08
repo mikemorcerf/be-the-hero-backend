@@ -1,4 +1,3 @@
-const generateUniqueid = require('../utils/generateUniqueid');
 const connection = require('../database/connection');
 
 module.exports = {
