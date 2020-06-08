@@ -1,4 +1,5 @@
-// Update with your config settings.
+require('reflect-metadata');
+require('dotenv').config();
 
 module.exports = {
 
