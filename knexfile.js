@@ -34,12 +34,22 @@ module.exports = {
   },
 
   production: {
-    client: 'pg',
-    connection: process.env.DATABASE_URL,
+    client: 'postgresql',
+    connection: {
+      host: process.env.DATABASE_HOST,
+      database: process.env.DATABASE_NAME,
+      username: process.env.DATABASE_USER,
+      password: process.env.DATABASE_PASSWORD,
+      port: process.env.DATABASE_PORT,
+      URI: process.env.DATABASE_URI
+    },
+    dialect: 'postgres',
+    type: 'postgres',
+    protocol: 'postgres',
+    ssl: true,
     migrations: {
       tableName: 'knex_migrations'
-    },
-    ssl: true
+    }
   }
 
 };
