@@ -28,7 +28,7 @@ module.exports = {
     client: 'pg',
     connection: process.env.DATABASE_URL,
     migrations: {
-      tableName: 'knex_migrations'
+      directory: './src/database/migrations/'
     },
     ssl: true
   },
@@ -48,8 +48,8 @@ module.exports = {
     protocol: 'postgres',
     ssl: true,
     migrations: {
-      tableName: 'knex_migrations'
-    }
+      directory: './src/database/migrations/'
+    },
   }
 
 };
