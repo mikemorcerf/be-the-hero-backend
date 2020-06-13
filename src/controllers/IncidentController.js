@@ -30,13 +30,13 @@ module.exports = {
         const { title, description, value } = request.body;
         const org_id = request.headers.authorization;
 
-        const [id] = await connection('incidents').insert({
+        const id = await connection('incidents').insert({
             title,
             description,
             value,
             org_id,
         });
-        return response.json(id[0]);
+        return response.json({ id });
     },
 
     async delete(request, reponse){
