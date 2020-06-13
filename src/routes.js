@@ -16,6 +16,12 @@ routes.post('/sessions',celebrate({
 
 routes.get('/orgs', OrgController.index);
 
+routes.delete('/orgs', celebrate({
+    [Segments.HEADERS]: Joi.object({
+        authorization: Joi.string().required(),
+    }).unknown(),
+}) , OrgController.delete);
+
 routes.post('/orgs', celebrate({
     [Segments.BODY]: Joi.object().keys({
         name: Joi.string().required(),

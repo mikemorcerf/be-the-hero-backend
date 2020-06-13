@@ -23,5 +23,18 @@ module.exports = {
         });
     
         return response.json({ id });
+    },
+
+    async delete(request, reponse){
+        const org_id = request.headers.authorization;
+
+        if (!org_id){
+            return response.status(401).json({ error: 'Operation not permitted.' });
+        }
+
+        await connection('incidents').where('org_id', org_id).delete();
+        await connection('orgs').where('id', org_id).delete();
+
+        return reponse.status(204).send();
     }
 };
