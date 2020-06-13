@@ -36,7 +36,7 @@ module.exports = {
             value,
             org_id,
         });
-        return response.json({ id });
+        return response.json(id[0]);
     },
 
     async delete(request, reponse){
